@@ -1,0 +1,2 @@
+- [Raanzlr project structure](raanzlr-project.md) — existing project extracted from ZIP into artifacts/raanzlr; uses react-router-dom v7, framer-motion, sonner, react-helmet-async, axios
+- [API server zod import](api-server-zod.md) — api-server esbuild cannot resolve zod/v4; use plain `zod` and install it explicitly in api-server dependencies

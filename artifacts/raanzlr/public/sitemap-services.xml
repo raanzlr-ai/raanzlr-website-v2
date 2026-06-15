@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap-style.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- AI Chatbots Service -->
+  <url>
+    <loc>https://raanzlr.com/services#ai-chatbots</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>AI Agents and Chatbots - Raanzlr</image:title>
+      <image:caption>Intelligent, multilingual AI assistants for WhatsApp, Web, and Instagram</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Workflow Automation Service -->
+  <url>
+    <loc>https://raanzlr.com/services#workflow-automation</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Workflow Automation - Raanzlr</image:title>
+      <image:caption>Eliminate manual data entry with automated workflows</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Web Development Service -->
+  <url>
+    <loc>https://raanzlr.com/services#web-development</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Web Platforms and Apps - Raanzlr</image:title>
+      <image:caption>High-performance marketing sites and SaaS applications</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Mobile Apps Service -->
+  <url>
+    <loc>https://raanzlr.com/services#mobile-apps</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Mobile App Development - Raanzlr</image:title>
+      <image:caption>Premium iOS and Android applications</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Custom AI Service -->
+  <url>
+    <loc>https://raanzlr.com/services#custom-ai</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Custom AI Solutions - Raanzlr</image:title>
+      <image:caption>Proprietary AI models and RAG systems</image:caption>
+    </image:image>
+  </url>
+
+  <!-- CRM Integration Service -->
+  <url>
+    <loc>https://raanzlr.com/services#crm-integration</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>API and Systems Integration - Raanzlr</image:title>
+      <image:caption>Connect your entire technological ecosystem</image:caption>
+    </image:image>
+  </url>
+
+  <!-- UI/UX Service -->
+  <url>
+    <loc>https://raanzlr.com/services#ui-ux</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>UI/UX and Product Design - Raanzlr</image:title>
+      <image:caption>Strategic product design and design systems</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Consulting Service -->
+  <url>
+    <loc>https://raanzlr.com/services#consulting</loc>
+    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Technical Audits and Consulting - Raanzlr</image:title>
+      <image:caption>Expert analysis and strategic roadmaps</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap-style.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.raanzlr.com/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.raanzlr.com/" />
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://www.raanzlr.com/services</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.raanzlr.com/services" />
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.raanzlr.com/about</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/about?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/about?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.raanzlr.com/about" />
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.raanzlr.com/contact</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/contact?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/contact?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.raanzlr.com/contact" />
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.raanzlr.com/privacy-policy</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/privacy-policy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/privacy-policy?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.raanzlr.com/privacy-policy" />
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://www.raanzlr.com/terms-of-service</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/terms-of-service?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/terms-of-service?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.raanzlr.com/terms-of-service" />
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://www.raanzlr.com/faq</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/faq?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/faq?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.raanzlr.com/faq" />
+  </url>
+
+  <!-- Individual Service Pages (via query params) -->
+  <url>
+    <loc>https://www.raanzlr.com/services?open=ai-chatbots</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=ai-chatbots&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=ai-chatbots&amp;lang=ar" />
+  </url>
+
+  <url>
+    <loc>https://www.raanzlr.com/services?open=workflow-automation</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=workflow-automation&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=workflow-automation&amp;lang=ar" />
+  </url>
+
+  <url>
+    <loc>https://www.raanzlr.com/services?open=web-development</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=web-development&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=web-development&amp;lang=ar" />
+  </url>
+
+  <url>
+    <loc>https://www.raanzlr.com/services?open=mobile-apps</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=mobile-apps&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=mobile-apps&amp;lang=ar" />
+  </url>
+
+  <url>
+    <loc>https://www.raanzlr.com/services?open=custom-ai</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=custom-ai&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=custom-ai&amp;lang=ar" />
+  </url>
+
+  <url>
+    <loc>https://www.raanzlr.com/services?open=crm-integration</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=crm-integration&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=crm-integration&amp;lang=ar" />
+  </url>
+
+  <url>
+    <loc>https://www.raanzlr.com/services?open=ui-ux</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=ui-ux&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=ui-ux&amp;lang=ar" />
+  </url>
+
+  <url>
+    <loc>https://www.raanzlr.com/services?open=consulting</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.raanzlr.com/services?open=consulting&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.raanzlr.com/services?open=consulting&amp;lang=ar" />
+  </url>
+
+</urlset>

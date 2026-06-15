@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap-style.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage Images -->
+  <url>
+    <loc>https://raanzlr.com/</loc>
+    <image:image>
+      <image:loc>https://raanzlr.com/Raanzlr.png</image:loc>
+      <image:title>Raanzlr Logo - AI Solutions and Software Engineering</image:title>
+      <image:caption>Raanzlr - Engineering intelligent software for ambitious teams worldwide</image:caption>
+      <image:license>https://raanzlr.com</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://raanzlr.com/logo%20raanzlr.png</image:loc>
+      <image:title>Raanzlr Brand Logo</image:title>
+      <image:caption>Official Raanzlr brand logo</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Services Page Images -->
+  <url>
+    <loc>https://raanzlr.com/services</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>AI Chatbots and Agents</image:title>
+      <image:caption>Intelligent multilingual AI assistants for customer support and sales</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Workflow Automation</image:title>
+      <image:caption>Automated workflows and business process automation</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Web Development</image:title>
+      <image:caption>Modern web platforms and SaaS applications</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Mobile App Development</image:title>
+      <image:caption>iOS and Android mobile applications</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Custom AI Solutions</image:title>
+      <image:caption>Proprietary AI models and machine learning systems</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>CRM Integration</image:title>
+      <image:caption>API integration and systems connectivity</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>UI/UX Design</image:title>
+      <image:caption>User interface and user experience design</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=1400&amp;q=80</image:loc>
+      <image:title>Technical Consulting</image:title>
+      <image:caption>Technical audits and strategic consulting</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page Images -->
+  <url>
+    <loc>https://raanzlr.com/about</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1772090131833-f7db87feab28?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHw0fHxkdWJhaSUyMHNreWxpbmUlMjBuaWdodCUyMG1vZGVybnxlbnwwfHx8fDE3Nzc4NTA3ODJ8MA&amp;ixlib=rb-4.1.0&amp;q=85</image:loc>
+      <image:title>Modern Skyline - Global Operations</image:title>
+      <image:caption>Raanzlr operates across MENA, Europe, and Türkiye</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1680992046626-418f7e910589?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwZGFyayUyMGJsdWUlMjBsaWdodHxlbnwwfHx8fDE3Nzc4NTA3ODJ8MA&amp;ixlib=rb-4.1.0&amp;q=85</image:loc>
+      <image:title>Operations Center</image:title>
+      <image:caption>Enterprise-grade infrastructure and operations</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

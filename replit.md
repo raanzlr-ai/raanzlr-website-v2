@@ -1,6 +1,6 @@
-# [Project name]
+# Raanzlr
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A full Sales + SEO website for Raanzlr — an AI, automation, and software engineering studio targeting GCC businesses.
 
 ## Run & Operate
 
