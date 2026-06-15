@@ -5,7 +5,9 @@
  * API specification for Raanzlr website
  * OpenAPI spec version: 0.1.0
  */
+import type { CaseStudySummary } from './caseStudySummary';
 
-export interface HealthStatus {
-  status: string;
+export interface CaseStudyListResponse {
+  data: CaseStudySummary[];
+  total: number;
 }

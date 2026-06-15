@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Raanzlr"
+version = "1.0.0"
+id = "artifacts/raanzlr"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25119
+
+[services.development]
+run = "pnpm --filter @workspace/raanzlr run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/raanzlr", "run", "build" ]
+publicDir = "artifacts/raanzlr/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25119"
+BASE_PATH = "/"

@@ -3,13 +3,19 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: API specification for Raanzlr website
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: contacts
+    description: Contact form submissions and lead capture
+  - name: insights
+    description: Blog posts and insights
+  - name: case-studies
+    description: Case study content
 paths:
   /healthz:
     get:
@@ -24,6 +30,119 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /contacts:
+    post:
+      operationId: submitContact
+      tags: [contacts]
+      summary: Submit contact / service request form
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactRequest"
+      responses:
+        "201":
+          description: Submission recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /insights:
+    get:
+      operationId: listInsights
+      tags: [insights]
+      summary: List all insights / blog posts
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: List of insights
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InsightListResponse"
+
+  /insights/{slug}:
+    get:
+      operationId: getInsight
+      tags: [insights]
+      summary: Get a single insight post by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Insight post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Insight"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /case-studies:
+    get:
+      operationId: listCaseStudies
+      tags: [case-studies]
+      summary: List all case studies
+      responses:
+        "200":
+          description: List of case studies
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CaseStudyListResponse"
+
+  /case-studies/{slug}:
+    get:
+      operationId: getCaseStudy
+      tags: [case-studies]
+      summary: Get a single case study by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Case study
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CaseStudy"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +153,187 @@ components:
       required:
         - status
 
+    ContactRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        company:
+          type: string
+        country:
+          type: string
+        email:
+          type: string
+          format: email
+        whatsapp:
+          type: string
+        service:
+          type: string
+          enum:
+            - ai-automation
+            - custom-software
+            - ai-agent
+            - dashboard
+            - api-integration
+            - web-mobile-app
+            - not-sure
+        description:
+          type: string
+        budget:
+          type: string
+        timeline:
+          type: string
+        sourcePage:
+          type: string
+      required:
+        - name
+        - email
+        - service
+        - description
+
+    ContactResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        message:
+          type: string
+      required:
+        - id
+        - message
+
+    InsightSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        title:
+          type: string
+        excerpt:
+          type: string
+        category:
+          type: string
+        readingTime:
+          type: string
+        publishedAt:
+          type: string
+          format: date-time
+        coverImage:
+          type: string
+      required:
+        - id
+        - slug
+        - title
+        - excerpt
+        - category
+        - readingTime
+        - publishedAt
+
+    Insight:
+      allOf:
+        - $ref: "#/components/schemas/InsightSummary"
+        - type: object
+          properties:
+            content:
+              type: string
+            metaDescription:
+              type: string
+            tags:
+              type: array
+              items:
+                type: string
+          required:
+            - content
+
+    InsightListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/InsightSummary"
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+      required:
+        - data
+        - total
+        - page
+        - limit
+
+    CaseStudySummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        title:
+          type: string
+        industry:
+          type: string
+        challenge:
+          type: string
+        result:
+          type: string
+        technologies:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - slug
+        - title
+        - industry
+        - challenge
+        - result
+        - technologies
+        - publishedAt
+
+    CaseStudy:
+      allOf:
+        - $ref: "#/components/schemas/CaseStudySummary"
+        - type: object
+          properties:
+            solution:
+              type: string
+            delivered:
+              type: string
+            content:
+              type: string
+            metaDescription:
+              type: string
+          required:
+            - solution
+            - delivered
+
+    CaseStudyListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/CaseStudySummary"
+        total:
+          type: integer
+      required:
+        - data
+        - total
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: string
+      required:
+        - error
