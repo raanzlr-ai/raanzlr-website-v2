@@ -31,13 +31,13 @@ export default function CaseStudies() {
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
             className="mt-6 max-w-4xl font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.04] tracking-tighter text-chrome">
-            {isAr ? "نتائج حقيقية. عملاء حقيقيون." : "Real results. Real clients."}
+            {isAr ? "ما نستطيع بناؤه لك." : "What we build for you."}
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-5 max-w-2xl text-base md:text-lg text-white/65">
             {isAr
-              ? "كل مشروع يبدأ بتحدٍّ حقيقي وينتهي بقياسات موثوقة. اكتشف كيف نحوّل المشاكل المعقدة إلى نتائج قابلة للقياس."
-              : "Every engagement starts with a real challenge and ends with verified metrics. See how we turn complex problems into measurable outcomes."}
+              ? "هذه نماذج تمثيلية للمشاريع التي نبنيها — تعكس الأنواع الحقيقية من التحديات التي نحلها وأسلوب عملنا. نحافظ على سرية بيانات عملائنا الفعليين."
+              : "These showcase the types of projects we engineer — reflecting real challenge patterns and our delivery approach. Actual client details are kept confidential."}
           </motion.p>
         </div>
       </section>

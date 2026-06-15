@@ -21,6 +21,7 @@ const Markets = lazy(() => import("./pages/Markets"));
 const BookACall = lazy(() => import("./pages/BookACall"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const Admin = lazy(() => import("./pages/Admin"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-[#050505]">
@@ -51,6 +52,7 @@ function AppContent() {
             <Route path="/book-a-call" element={<BookACall />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>

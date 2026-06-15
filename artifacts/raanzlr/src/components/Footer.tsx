@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-[10px] font-mono-accent uppercase tracking-[0.25em] text-white/40 mb-4">
+            <h4 className="text-[10px] font-section-label uppercase text-white/40 mb-4">
               {isAr ? "الشركة" : "Company"}
             </h4>
             <ul className="space-y-2.5">
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-[10px] font-mono-accent uppercase tracking-[0.25em] text-white/40 mb-4">
+            <h4 className="text-[10px] font-section-label uppercase text-white/40 mb-4">
               {isAr ? "الموارد" : "Resources"}
             </h4>
             <ul className="space-y-2.5">
@@ -89,7 +89,7 @@ export default function Footer() {
 
           {/* Legal & CTA */}
           <div>
-            <h4 className="text-[10px] font-mono-accent uppercase tracking-[0.25em] text-white/40 mb-4">
+            <h4 className="text-[10px] font-section-label uppercase text-white/40 mb-4">
               {isAr ? "قانوني" : "Legal"}
             </h4>
             <ul className="space-y-2.5">

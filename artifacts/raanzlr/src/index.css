@@ -75,6 +75,25 @@
 .font-mono-accent { font-family: "IBM Plex Mono", monospace; }
 [dir="rtl"] .font-display { font-family: "Tajawal", sans-serif; }
 
+/* ── RTL / ARABIC HEADING FIX ───────────────────────
+   Tajawal has taller ascenders — tighten line-height on
+   LTR headings can clip Arabic glyphs. We add generous
+   line-height and ensure overflow is never clipped.      */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] .font-display {
+  line-height: 1.45 !important;
+  overflow: visible;
+}
+
+/* ── FOOTER SECTION HEADINGS ───────────────────────── */
+.font-section-label {
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+}
+
 /* ── BRAND COLOURS ─────────────────────────────────── */
 .text-electric { color: #00F0FF; }
 .text-chrome {
