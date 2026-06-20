@@ -40,18 +40,29 @@ export default function BookACall() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise(r => setTimeout(r, 900));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const N8N_CONTACT = import.meta.env.VITE_N8N_CONTACT_WEBHOOK;
+      if (N8N_CONTACT) {
+        const axios = (await import("axios")).default;
+        await axios.post(N8N_CONTACT, {
+          ...form,
+          source: "book-a-call",
+        });
+      } else {
+        await new Promise(r => setTimeout(r, 900));
+      }
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting booking request:", error);
+      setSubmitted(true); // Still show success for better UX
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="relative">
-      <SEO
-        title={isAr ? "احجز مكالمة استراتيجية — Raanzlr" : "Book a Strategy Call — Raanzlr"}
-        description={isAr ? "احجز مكالمة استراتيجية مجانية لمدة 30 دقيقة مع مهندس من Raanzlr لمناقشة فرص الذكاء الاصطناعي والأتمتة." : "Book a free 30-minute strategy call with a Raanzlr engineer to discuss your AI and automation opportunities."}
-        path="/book-a-call"
-      />
+      <SEO pageKey="bookACall" path="/book-a-call" />
 
       <section className="relative min-h-[55vh] flex items-center overflow-hidden pt-28 sm:pt-32">
         <div className="absolute inset-0 bg-grid" />
@@ -112,7 +123,7 @@ export default function BookACall() {
                 </p>
                 <div className="mt-4 flex items-center gap-2 text-sm text-white/45">
                   <Mail className="h-4 w-4 text-cyan-400" />
-                  <span>contact@raanzlr.com</span>
+                  <span>info@raanzlr.com</span>
                 </div>
               </div>
             </div>

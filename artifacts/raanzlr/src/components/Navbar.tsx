@@ -7,12 +7,12 @@ import LanguageToggle from "./LanguageToggle";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
+  { key: "about", href: "/about" },
   { key: "services", href: "/services" },
   { key: "industries", href: "/industries" },
   { key: "markets", href: "/markets" },
   { key: "case-studies", href: "/case-studies" },
   { key: "insights", href: "/insights" },
-  { key: "about", href: "/about" },
 ];
 
 const NAV_LABELS: Record<string, { en: string; ar: string }> = {
@@ -22,14 +22,15 @@ const NAV_LABELS: Record<string, { en: string; ar: string }> = {
   markets: { en: "Markets", ar: "الأسواق" },
   "case-studies": { en: "Case Studies", ar: "دراسات الحالة" },
   insights: { en: "Insights", ar: "المدونة" },
-  about: { en: "About", ar: "عنا" },
+  about: { en: "About", ar: "من نحن" },
 };
 
 export default function Navbar() {
-  const { isAr } = useLang();
+  const { isAr, localizedPath } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const currentPath = location.pathname.replace(/^\/(en|ar)(?=\/|$)/, "") || "/";
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -50,19 +51,20 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-18">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Raanzlr Home">
+            <Link to={localizedPath("/")} className="flex items-center gap-2.5 shrink-0" aria-label="Raanzlr Home">
+              <img src="/logo raanzlr.png" alt="Raanzlr Logo" className={`h-9 w-9 ${isAr ? "order-last" : "order-first"}`} />
               <img src="/Raanzlr.png" alt="Raanzlr" className="h-7 w-auto" />
             </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
               {NAV_LINKS.map((l) => {
-                const isActive = location.pathname === l.href;
+                const isActive = currentPath === l.href;
                 const label = isAr ? NAV_LABELS[l.key].ar : NAV_LABELS[l.key].en;
                 return (
                   <Link
                     key={l.key}
-                    to={l.href}
+                    to={localizedPath(l.href)}
                     className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-lg ${isActive ? "text-white" : "text-white/55 hover:text-white"}`}
                   >
                     {label}
@@ -82,7 +84,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <LanguageToggle className="hidden sm:flex" />
               <Link
-                to="/contact"
+                to={localizedPath("/contact")}
                 className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-4 py-2 text-xs font-bold text-[#050505] shadow-[0_0_16px_rgba(0,240,255,0.3)] hover:shadow-[0_0_24px_rgba(0,240,255,0.5)] transition-shadow"
               >
                 {isAr ? "تواصل" : "Contact"}
@@ -116,8 +118,8 @@ export default function Navbar() {
                 return (
                   <Link
                     key={l.key}
-                    to={l.href}
-                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${location.pathname === l.href ? "bg-white/[0.06] text-white" : "text-white/60 hover:text-white"}`}
+                    to={localizedPath(l.href)}
+                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${currentPath === l.href ? "bg-white/[0.06] text-white" : "text-white/60 hover:text-white"}`}
                   >
                     {label}
                   </Link>
@@ -126,10 +128,10 @@ export default function Navbar() {
               <div className="pt-4 flex items-center gap-3">
                 <LanguageToggle />
                 <Link
-                  to="/book-a-call"
+                  to={localizedPath("/contact")}
                   className="inline-flex rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-4 py-2 text-sm font-bold text-[#050505]"
                 >
-                  {isAr ? "احجز مكالمة" : "Book a Call"}
+                  {isAr ? "تواصل معنا" : "Contact Us"}
                 </Link>
               </div>
             </div>

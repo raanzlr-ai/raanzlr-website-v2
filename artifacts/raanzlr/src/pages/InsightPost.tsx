@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, CalendarDays, ArrowRight } from "lucide-react";
@@ -8,15 +8,43 @@ import PulseDivider from "../components/PulseDivider";
 import MagneticButton from "../components/MagneticButton";
 import SEO from "../components/SEO";
 import { POSTS } from "../data/posts";
+import { Post, fromStaticPost, fetchPost, fetchAllPosts } from "../lib/posts";
 
 export default function InsightPost() {
   const { slug } = useParams<{ slug: string }>();
   const { isAr } = useLang();
 
-  const post = POSTS.find((p) => p.slug === slug);
-  if (!post) return <Navigate to="/insights" replace />;
+  const [post, setPost] = useState<Post | null | undefined>(undefined);
+  const [others, setOthers] = useState<Post[]>([]);
 
-  const others = POSTS.filter((p) => p.slug !== slug).slice(0, 3);
+  useEffect(() => {
+    if (!slug) return;
+
+    // Immediately show static post while API loads
+    const staticPost = POSTS.find(p => p.slug === slug);
+    if (staticPost) {
+      setPost(fromStaticPost(staticPost));
+    }
+    const staticOthers = POSTS.filter(p => p.slug !== slug).slice(0, 3).map(fromStaticPost);
+    setOthers(staticOthers);
+
+    // Fetch from API (may override static)
+    fetchPost(slug).then(apiPost => {
+      if (apiPost) setPost(apiPost);
+      else if (!staticPost) setPost(null);
+    }).catch(() => {});
+
+    // Also refresh "others" from full API posts list
+    fetchAllPosts().then(posts => {
+      const apiOthers = posts.filter(p => p.slug !== slug).slice(0, 3);
+      if (apiOthers.length > 0) setOthers(apiOthers);
+    }).catch(() => {});
+  }, [slug]);
+
+  if (post === undefined) return (
+    <div className="min-h-screen flex items-center justify-center text-white/40 text-sm">Loading...</div>
+  );
+  if (post === null) return <Navigate to="/insights" replace />;
 
   const fmt = (d: string) =>
     new Date(d).toLocaleDateString(isAr ? "ar-SA" : "en-US", {
@@ -28,9 +56,22 @@ export default function InsightPost() {
   return (
     <div className="relative">
       <SEO
-        title={`${isAr ? post.title.ar : post.title.en} — Raanzlr`}
-        description={isAr ? post.excerpt.ar : post.excerpt.en}
+        title={`${post.seo?.titleEn || post.title.en} — Raanzlr`}
+        titleAr={`${post.seo?.titleAr || post.title.ar} — Raanzlr`}
+        description={post.seo?.descriptionEn || post.excerpt.en}
+        descriptionAr={post.seo?.descriptionAr || post.excerpt.ar}
+        keywords={post.seo?.keywordsEn || `${post.tag.en}, AI insights GCC, automation blog MENA`}
+        keywordsAr={post.seo?.keywordsAr || `${post.tag.ar}، رؤى الذكاء الاصطناعي الخليج، مدونة الأتمتة`}
         path={`/insights/${post.slug}`}
+        type="article"
+        image={post.image}
+        article={{
+          publishedTime: `${post.date}T00:00:00Z`,
+          modifiedTime: `${post.date}T00:00:00Z`,
+          author: post.author || "Raanzlr",
+          section: post.tag.en,
+          tags: [post.tag.en],
+        }}
       />
 
       {/* Hero */}
@@ -39,6 +80,8 @@ export default function InsightPost() {
           <img
             src={post.image}
             alt={isAr ? post.title.ar : post.title.en}
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-full object-cover opacity-25"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-[#050505]/40" />
@@ -105,17 +148,58 @@ export default function InsightPost() {
       {/* Article Body */}
       <section className="relative py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="space-y-14">
+          <div className="space-y-16">
             {post.sections.map((section, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <div>
-                  <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-5 leading-snug">
-                    {isAr ? section.heading.ar : section.heading.en}
-                  </h2>
-                  <p className="text-white/70 leading-[1.85] text-base sm:text-lg">
-                    {isAr ? section.body.ar : section.body.en}
-                  </p>
-                </div>
+                <article className="relative">
+                  {/* Section Number */}
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl border border-cyan-400/30 bg-cyan-400/5 flex items-center justify-center">
+                      <span className="text-lg font-mono-accent font-bold text-cyan-300">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <div className="flex-1 pt-1">
+                      <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-snug bg-gradient-to-r from-white via-white/95 to-white/85 bg-clip-text text-transparent">
+                        {isAr ? section.heading.ar : section.heading.en}
+                      </h2>
+                    </div>
+                  </div>
+
+                  {/* Section Body */}
+                  <div className="relative pl-0 sm:pl-[4.5rem]">
+                    {/* Decorative Line */}
+                    <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/30 via-cyan-400/10 to-transparent hidden sm:block" />
+                    
+                    {/* Optional Section Image */}
+                    {section.image && (
+                      <div className="mb-8 rounded-xl overflow-hidden border border-cyan-400/20">
+                        <img 
+                          src={section.image} 
+                          alt={isAr ? section.heading.ar : section.heading.en}
+                          loading="lazy"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    )}
+                    
+                    {/* Content with improved typography */}
+                    <div className="prose prose-invert prose-lg max-w-none">
+                      <p className={`text-white/75 leading-[1.9] text-base sm:text-lg tracking-wide ${
+                        isAr ? 'text-justify' : '[text-align:justify]'
+                      } ${
+                        !isAr ? 'first-letter:text-5xl first-letter:font-bold first-letter:text-cyan-300 first-letter:float-left first-letter:me-3 first-letter:mt-1 first-letter:leading-none' : ''
+                      }`}>
+                        {isAr ? section.body.ar : section.body.en}
+                      </p>
+                    </div>
+
+                    {/* Accent Border Bottom */}
+                    {i < post.sections.length - 1 && (
+                      <div className="mt-12 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+                    )}
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>

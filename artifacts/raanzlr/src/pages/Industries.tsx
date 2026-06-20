@@ -34,7 +34,7 @@ const INDUSTRIES = [
     key: "education",
     en: { title: "Education & EdTech", desc: "Adaptive learning platforms, AI tutoring assistants, automated grading pipelines, and multilingual student support systems for universities and online academies.", tags: ["AI Tutoring", "Adaptive Learning", "Auto-Grading", "Student Support"] },
     ar: { title: "التعليم والتكنولوجيا التعليمية", desc: "منصات التعلم التكيفي، مساعدو الذكاء الاصطناعي للتدريس، خطوط التصحيح الآلي، وأنظمة دعم الطلاب متعددة اللغات.", tags: ["توجيه AI", "تعلم تكيفي", "تصحيح آلي", "دعم الطلاب"] },
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    image: "/industries/education-edtech-ai.png",
   },
   {
     icon: Truck,
@@ -71,11 +71,7 @@ export default function Industries() {
 
   return (
     <div className="relative">
-      <SEO
-        title={isAr ? "القطاعات — Raanzlr" : "Industries We Serve — Raanzlr"}
-        description={isAr ? "Raanzlr تقدم حلول الذكاء الاصطناعي والأتمتة المخصصة لمختلف القطاعات في منطقة الخليج والشرق الأوسط." : "Raanzlr delivers AI automation and software engineering solutions tailored to industries across the GCC and MENA region."}
-        path="/industries"
-      />
+      <SEO pageKey="industries" path="/industries" />
 
       <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-28 sm:pt-32">
         <div className="absolute inset-0 bg-grid" />
@@ -112,7 +108,7 @@ export default function Industries() {
                 <StaggerItem key={ind.key}>
                   <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] hover:border-cyan-400/30 transition-colors h-full flex flex-col">
                     <div className="relative h-36 overflow-hidden">
-                      <img src={ind.image} alt={content.title} className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                      <img src={ind.image} alt={content.title} loading="lazy" className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050505]" />
                       <div className="absolute bottom-3 left-4">
                         <div className="h-10 w-10 rounded-xl border border-cyan-400/40 bg-cyan-400/10 flex items-center justify-center">

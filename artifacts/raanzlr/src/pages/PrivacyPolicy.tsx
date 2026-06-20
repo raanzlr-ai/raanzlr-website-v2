@@ -11,16 +11,16 @@ const SECTIONS_EN = [
   { icon: Eye, title: "Data We Collect", content: ["When you interact with our website or services, we collect:", "• Identity Information: Full name, email address, phone number, job title, and company name.", "• Usage Data: IP address, browser type, operating system, pages visited, and session duration.", "• Communication Data: Any information you voluntarily provide through contact forms or email."] },
   { icon: Lock, title: "How We Use Your Data", content: ["We use the information we collect for:", "• Service Delivery: Process your requests, respond to inquiries, and execute agreed-upon projects.", "• Analytics & Improvement: Understand how our website is used to improve performance and user experience.", "• Marketing & Communications: Send updates about our services (you can opt out anytime).", "• Legal Compliance: Fulfill legal and regulatory obligations."] },
   { icon: UserCheck, title: "Third-Party Services", content: ["We use trusted third-party services:", "• Vercel Analytics & Speed Insights: For monitoring website performance.", "• PostHog: For understanding user behavior and improving the product experience.", "• Google Fonts: For loading the typefaces used on our website.", "We do not sell or share your personal information with third parties for marketing purposes without your explicit consent."] },
-  { icon: Shield, title: "Your Rights", content: ["Under GDPR and applicable local laws, you have the right to:", "• Access: Request a copy of all the data we hold about you.", "• Rectification: Request correction of any inaccurate information.", "• Erasure: Request complete deletion of your personal data.", "• Data Portability: Receive your data in a portable format.", "• Object: Object to the use of your data for marketing purposes.", "To exercise any of these rights, contact us at: contact@raanzlr.com"] },
-  { icon: Mail, title: "Contact Us", content: ["If you have any questions or concerns about this privacy policy:", "Email: contact@raanzlr.com", "Address: 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA", "We commit to responding to all inquiries within 48 business hours."] },
+  { icon: Shield, title: "Your Rights", content: ["Under GDPR and applicable local laws, you have the right to:", "• Access: Request a copy of all the data we hold about you.", "• Rectification: Request correction of any inaccurate information.", "• Erasure: Request complete deletion of your personal data.", "• Data Portability: Receive your data in a portable format.", "• Object: Object to the use of your data for marketing purposes.", "To exercise any of these rights, contact us at: info@raanzlr.com"] },
+  { icon: Mail, title: "Contact Us", content: ["If you have any questions or concerns about this privacy policy:", "Email: info@raanzlr.com", "Address: 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA", "We commit to responding to all inquiries within 48 business hours."] },
 ];
 
 const SECTIONS_AR = [
   { icon: Eye, title: "البيانات التي نجمعها", content: ["عندما تتفاعل مع موقعنا أو خدماتنا، نجمع:", "• معلومات الهوية: الاسم الكامل، البريد الإلكتروني، رقم الهاتف، المسمى الوظيفي، واسم الشركة.", "• بيانات الاستخدام: عنوان IP، نوع المتصفح، نظام التشغيل، الصفحات التي زرتها.", "• بيانات الاتصال: أي معلومات تشاركها طوعاً عبر نماذج الاتصال."] },
   { icon: Lock, title: "كيف نستخدم معلوماتك", content: ["نستخدم البيانات لـ:", "• تقديم الخدمات: معالجة طلباتك والرد على استفساراتك.", "• التحسين والتحليل: فهم كيفية استخدام الموقع لتحسين الأداء.", "• التواصل التسويقي: إرسال تحديثات حول خدماتنا (يمكنك إلغاء الاشتراك في أي وقت).", "• الامتثال القانوني: الوفاء بالمتطلبات القانونية."] },
   { icon: UserCheck, title: "الخدمات الخارجية", content: ["نعتمد على خدمات موثوقة:", "• Vercel Analytics: لمراقبة أداء الموقع.", "• PostHog: لفهم سلوك المستخدمين.", "• Google Fonts: لتحميل الخطوط.", "لا نبيع أو نشارك معلوماتك الشخصية مع أطراف خارجية لأغراض تسويقية بدون موافقتك."] },
-  { icon: Shield, title: "حقوقك", content: ["وفقاً للائحة GDPR والقوانين المحلية، لديك حق:", "• الوصول: طلب نسخة من بياناتك.", "• التصحيح: طلب تصحيح معلومات غير دقيقة.", "• الحذف: طلب حذف بياناتك الشخصية.", "• نقل البيانات: الحصول على بياناتك بصيغة قابلة للنقل.", "• الاعتراض: الاعتراض على استخدام بياناتك للتسويق.", "للتواصل: contact@raanzlr.com"] },
-  { icon: Mail, title: "تواصل معنا", content: ["إذا كان لديك أي استفسار:", "البريد الإلكتروني: contact@raanzlr.com", "العنوان: 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA", "نلتزم بالرد خلال 48 ساعة عمل."] },
+  { icon: Shield, title: "حقوقك", content: ["وفقاً للائحة GDPR والقوانين المحلية، لديك حق:", "• الوصول: طلب نسخة من بياناتك.", "• التصحيح: طلب تصحيح معلومات غير دقيقة.", "• الحذف: طلب حذف بياناتك الشخصية.", "• نقل البيانات: الحصول على بياناتك بصيغة قابلة للنقل.", "• الاعتراض: الاعتراض على استخدام بياناتك للتسويق.", "للتواصل: info@raanzlr.com"] },
+  { icon: Mail, title: "تواصل معنا", content: ["إذا كان لديك أي استفسار:", "البريد الإلكتروني: info@raanzlr.com", "العنوان: 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA", "نلتزم بالرد خلال 48 ساعة عمل."] },
 ];
 
 export default function PrivacyPolicy() {
@@ -30,10 +30,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="relative">
-      <SEO
-        title={isAr ? "سياسة الخصوصية — Raanzlr" : "Privacy Policy — Raanzlr"}
-        path="/privacy-policy"
-      />
+      <SEO pageKey="privacyPolicy" path="/privacy-policy" />
 
       <section className="relative pt-36 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-40" />

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://raanzlr.com/sitemap-pages.xml</loc>
-    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <loc>https://raanzlr.com/sitemap.xml</loc>
+    <lastmod>2026-06-17</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://raanzlr.com/sitemap-services.xml</loc>
-    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <loc>https://raanzlr.com/sitemap-en.xml</loc>
+    <lastmod>2026-06-17</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://raanzlr.com/sitemap-images.xml</loc>
-    <lastmod>2026-05-08T12:00:00+00:00</lastmod>
+    <loc>https://raanzlr.com/sitemap-ar.xml</loc>
+    <lastmod>2026-06-17</lastmod>
   </sitemap>
 </sitemapindex>

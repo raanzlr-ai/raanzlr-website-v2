@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Bot, Workflow, Globe2, Smartphone, Sparkles, PlugZap, PenTool, ShieldCheck, Clock, TrendingUp, Award, Languages, ArrowRight } from "lucide-react";
+import { Bot, Workflow, Globe2, Smartphone, Sparkles, PlugZap, PenTool, ShieldCheck, Clock, TrendingUp, Award, Languages, ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "../contexts/LanguageContext";
 import ParticlesHero from "../components/ParticlesHero";
@@ -83,8 +83,29 @@ const HeroLogoStage = () => {
   );
 };
 
+function HomeFAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={`rounded-xl border transition-colors overflow-hidden ${open ? "border-cyan-400/30 bg-cyan-400/[0.03]" : "border-white/8 bg-white/[0.02] hover:border-white/15"}`}>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-4 p-5 text-left rtl:text-right"
+      >
+        <span className="text-sm font-medium text-white">{q}</span>
+        <ChevronDown className={`h-4 w-4 text-white/40 shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-cyan-300" : ""}`} />
+      </button>
+      {open && (
+        <div className="px-5 pb-5">
+          <p className="text-sm text-white/60 leading-relaxed">{a}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
-  const { t } = useLang();
+  const { t, isAr } = useLang();
 
   return (
     <div data-testid="home-page" className="relative">
@@ -111,8 +132,8 @@ export default function Home() {
                 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tighter">
                 <span className="text-chrome">{t.home.heroTitle}</span>{" "}
                 <span className="text-electric glow-text">{t.home.heroTitleAccent}</span>
-                <br />
-                <span className="text-chrome">{t.home.heroTitleEnd}</span>
+                {!isAr && <br />}
+                <span className="text-chrome">{isAr ? " " : ""}{t.home.heroTitleEnd}</span>
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}
                 className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-white/65">
@@ -222,6 +243,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ PREVIEW */}
+      <section className="relative py-20 sm:py-28">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="text-xs font-mono-accent uppercase tracking-[0.22em] text-cyan-300/90 mb-4">
+                {isAr ? "// الأسئلة الشائعة" : "// FAQ"}
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-chrome">
+                {isAr ? "أسئلة يطرحها الناس دائماً" : "Questions people always ask"}
+              </h2>
+            </div>
+          </Reveal>
+          <div className="space-y-3">
+            {(isAr ? [
+              { q: "ما هي الخدمات التي تقدمها Raanzlr؟", a: "نقدم وكلاء ذكاء اصطناعي وروبوتات محادثة، أتمتة سير العمل، تطوير مواقع وتطبيقات الهاتف المحمول، تكامل الأنظمة، وحلول ذكاء اصطناعي مخصصة للشركات." },
+              { q: "هل تدعمون اللغة العربية بشكل كامل؟", a: "نعم، نبني جميع حلولنا مع دعم كامل للغة العربية وتخطيط RTL من اليوم الأول — وليس كإضافة لاحقة." },
+              { q: "كم يستغرق إنجاز مشروع نموذجي؟", a: "روبوت محادثة بسيط: 2-4 أسابيع. موقع ويب: 4-8 أسابيع. حلول ذكاء اصطناعي مخصصة: 6-12 أسبوعاً." },
+              { q: "هل تقدمون استشارة مجانية؟", a: "نعم، نقدم استشارة أولية مجانية (30-45 دقيقة) لفهم احتياجاتك ومناقشة الحلول الممكنة دون أي التزام." },
+              { q: "ما نماذج التسعير المتاحة؟", a: "نقدم تسعيراً بناءً على المشروع، ودفعات على مراحل، وعقود صيانة شهرية. نوضح جميع التكاليف بشفافية كاملة قبل البدء." },
+            ] : [
+              { q: "What services does Raanzlr offer?", a: "We build AI agents & chatbots, workflow automation, web & mobile apps, systems integration, and custom AI solutions for businesses." },
+              { q: "Do you fully support Arabic?", a: "Yes — we build every solution with full Arabic support and RTL layout from day one, not as an afterthought." },
+              { q: "How long does a typical project take?", a: "Simple chatbot: 2-4 weeks. Website: 4-8 weeks. Custom AI solutions: 6-12 weeks. We provide detailed timelines at project start." },
+              { q: "Do you offer a free consultation?", a: "Yes. We offer a free 30-45 minute discovery call to understand your needs and discuss possible solutions — no commitment needed." },
+              { q: "What pricing models do you offer?", a: "We offer project-based pricing, milestone payments, and monthly maintenance contracts. All costs are outlined transparently upfront." },
+            ]).map((item, i) => (
+              <HomeFAQItem key={i} q={item.q} a={item.a} />
+            ))}
+          </div>
+          <Reveal delay={0.2}>
+            <div className="mt-10 text-center">
+              <Link to={isAr ? "/ar/faq" : "/faq"} className="inline-flex items-center gap-2 text-sm font-mono-accent uppercase tracking-[0.18em] text-cyan-300 hover:text-white transition-colors">
+                {isAr ? "عرض جميع الأسئلة" : "View all questions"} <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* CTA BAND */}
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
@@ -236,7 +297,7 @@ export default function Home() {
                 <p className="mt-4 text-white/60 max-w-xl mx-auto">{t.services.customEngagementDesc}</p>
                 <div className="mt-8 flex justify-center gap-4 flex-wrap">
                   <MagneticButton to="/contact">{t.cta.getStarted}</MagneticButton>
-                  <MagneticButton to="/book-a-call" variant="ghost">{t.cta.bookCall}</MagneticButton>
+                  <MagneticButton to="/contact" variant="ghost">{t.cta.contactUs}</MagneticButton>
                 </div>
               </div>
             </div>

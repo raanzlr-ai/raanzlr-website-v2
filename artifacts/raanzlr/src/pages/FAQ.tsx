@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { HelpCircle, Search, ChevronDown } from "lucide-react";
 import { useLang } from "../contexts/LanguageContext";
@@ -7,6 +6,7 @@ import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import PulseDivider from "../components/PulseDivider";
 import MagneticButton from "../components/MagneticButton";
 import SEO from "../components/SEO";
+import { Helmet } from 'react-helmet-async';
 
 interface FAQ { q: string; a: string; }
 interface FAQCat { title: string; questions: FAQ[]; }
@@ -21,24 +21,32 @@ export default function FAQ() {
       { q: "هل تدعمون اللغة العربية في مشاريعكم؟", a: "نعم، بالتأكيد! نحن متخصصون في بناء حلول متعددة اللغات مع دعم كامل للغة العربية (RTL)، الإنجليزية، والتركية." },
       { q: "ما الفرق بين روبوتات المحادثة العادية ووكلاء الذكاء الاصطناعي؟", a: "روبوتات المحادثة التقليدية تعتمد على قواعد محددة مسبقاً. أما وكلاء الذكاء الاصطناعي فيستخدمون نماذج لغوية متقدمة (LLMs) لفهم السياق والتكامل مع أنظمتك الحالية." },
       { q: "هل يمكنكم التكامل مع أنظمتنا الحالية؟", a: "نعم، نتخصص في تكامل الأنظمة. نربط حلولنا مع منصات CRM (HubSpot, Salesforce, Zoho)، أنظمة ERP، قواعد البيانات، وأي واجهات برمجة تطبيقات مخصصة." },
+      { q: "هل تعملون مع منظومتنا التقنية الحالية أم تبدأون من الصفر؟", a: "نبدأ من حيث أنتم. خطوتنا الأولى دائماً هي مراجعة تقنية لفهم ما لديكم — ما يعمل وما يُعيقكم. أحياناً الحل الصحيح هو إعادة البناء من الأساس. وأحياناً يكفي إضافة طبقة فوق ما هو موجود. سنخبركم بصدق بأيهما أنسب لحالتكم." },
+      { q: "هل تتعاملون فقط مع الشركات الكبيرة أم مع الشركات الصغيرة والمتوسطة أيضاً؟", a: "نعمل مع الجميع — من الشركات الناشئة التي تُطلق منتجها الأول إلى المؤسسات الإقليمية التي تُوسّع أتمتتها. ما يهم هو وجود مشكلة تجارية حقيقية تريد حلاً لها. حجم الشركة لا يُغيّر طريقة تعاملنا مع العمل." },
     ]},
     pricing: { title: "التسعير والميزانية", questions: [
       { q: "كيف تحددون أسعار مشاريعكم؟", a: "نحدد الأسعار بناءً على نطاق المشروع، التعقيد، الجدول الزمني، والتقنيات المطلوبة. نقدم عرض أسعار شفاف ومفصل بعد مناقشة متطلباتك." },
       { q: "ما هو متوسط تكلفة مشروع روبوت محادثة ذكي؟", a: "تتراوح تكلفة روبوت محادثة ذكي أساسي من $5,000 إلى $15,000، بينما الحلول المتقدمة مع تكامل CRM قد تتراوح من $15,000 إلى $50,000+." },
       { q: "هل تقدمون خطط دفع شهرية أو اشتراكات؟", a: "نعم، نقدم نماذج تسعير مرنة. للمشاريع الكبيرة، نقدم دفعات على مراحل. كما نقدم عقود صيانة ودعم شهرية." },
       { q: "هل هناك تكاليف خفية أو رسوم إضافية؟", a: "لا، نحن نؤمن بالشفافية الكاملة. جميع التكاليف يتم توضيحها بوضوح في عرض الأسعار." },
+      { q: "هل يمكنني الحصول على تقدير تقريبي قبل الالتزام باستشارة كاملة؟", a: "بالتأكيد. روبوت محادثة ذكي أساسي يتراوح عادةً بين 5 آلاف و15 ألف دولار. منصة ويب ثنائية اللغة تقع في الغالب بين 15 ألفاً و40 ألفاً. أنظمة الذكاء الاصطناعي المخصصة مع التكاملات المعقدة تبدأ من 20 ألفاً وتتصاعد. هذه أرقام واقعية — الرقم الدقيق يعتمد على متطلباتك، وهذا هو سبب أهمية الاستشارة." },
+      { q: "هل تقبلون حصصاً في الشركة بدلاً من التعاقد النقدي للشركات الناشئة؟", a: "لا نأخذ الحصص كنموذج دفع أساسي — وجدنا أن ذلك يُعقّد العلاقة ويُشوّه الحوافز. لكن إذا كنتم في مرحلة مبكرة جداً مع زخم حقيقي، فنحن منفتحون على نقاش ترتيبات هجينة. تواصلوا معنا وسنكون صريحين تماماً." },
     ]},
     process: { title: "العملية والجدول الزمني", questions: [
       { q: "كم من الوقت يستغرق إنجاز مشروع نموذجي؟", a: "روبوت محادثة بسيط: 2-4 أسابيع. موقع ويب: 4-8 أسابيع. تطبيق جوال: 8-16 أسبوعاً. حلول الذكاء الاصطناعي: 6-12 أسبوعاً." },
       { q: "كيف تبدو عملية التطوير لديكم؟", a: "نتبع منهجية Agile: الاكتشاف والتخطيط، التصميم والنماذج الأولية، التطوير التكراري، الاختبار والضمان، ثم الإطلاق والدعم." },
       { q: "هل يمكنني طلب تعديلات أثناء التطوير؟", a: "نعم، نرحب بالملاحظات والتعديلات! نقدم جولات مراجعة منتظمة. التعديلات الصغيرة ضمن النطاق مشمولة." },
       { q: "ماذا يحدث بعد إطلاق المشروع؟", a: "نقدم فترة ضمان (30-90 يوماً) لإصلاح أي أخطاء، ثم عقود صيانة ودعم اختيارية." },
+      { q: "ما مدى انخراطي المطلوب خلال مسيرة المشروع؟", a: "بقدر ما يتطلبه المشروع — لكننا لا نخلق عبئاً غير ضروري. في الأسبوعين الأولين نحتاج مدخلاتكم على المتطلبات والقرارات. بعدها نتحرك باستقلالية ونُزامنكم عند المحطات المهمة. لن تتلقوا عشر رسائل يومية، لكنكم ستعرفون دائماً أين تسير الأمور." },
+      { q: "ماذا يحدث إذا تجاوز المشروع الميزانية أو الجدول الزمني؟", a: "نُدقق في التحديد مسبقاً لتفادي ذلك، وهو نادر. لكن حين تتغير الأمور — وتتغير أحياناً — نُخبركم فوراً ونشرح السبب ونقدم خيارات. لا فاجآت في نهاية الطريق. إذا اتسع النطاق، نتفق كتابةً قبل أن نبني." },
     ]},
     support: { title: "الدعم والتواصل", questions: [
-      { q: "كيف يمكنني التواصل معكم؟", a: "عبر نموذج الاتصال على موقعنا، أو مراسلتنا على contact@raanzlr.com. سنرد خلال 24 ساعة عمل." },
+      { q: "كيف يمكنني التواصل معكم؟", a: "عبر نموذج الاتصال على موقعنا، أو مراسلتنا على info@raanzlr.com. سنرد خلال 24 ساعة عمل." },
       { q: "هل تقدمون استشارات مجانية؟", a: "نعم! نقدم استشارة أولية مجانية (30-45 دقيقة) لفهم احتياجاتك ومناقشة الحلول الممكنة." },
       { q: "في أي مناطق زمنية تعملون؟", a: "مقرنا في نيوجيرسي (EST/EDT)، ولدينا فرق في الشرق الأوسط (GST/AST) وأوروبا (CET/EET)." },
       { q: "ما هي لغات التواصل التي تدعمونها؟", a: "نتحدث بطلاقة العربية والإنجليزية والتركية. جميع اجتماعاتنا ووثائقنا متوفرة باللغة التي تفضلها." },
+      { q: "هل تقدمون دعماً ورعاية مستمرة بعد الإطلاق؟", a: "نعم — نقدم حزم صيانة ودعم شهرية تتراوح من مراقبة الاستمرارية الأساسية إلى طاقة تطوير نشطة. معظم العملاء يحتفظون بحزمة صغيرة بعد الإطلاق لضمان الاطمئنان. النطاق الدقيق يعتمد على ما بنيناه ومدى حاجته للتطور." },
+      { q: "هل يمكننا البدء بشيء صغير ثم التوسع لاحقاً؟", a: "هذا في الواقع الأسلوب الذي نُفضّل العمل به. ابدأ بمشكلة واحدة محددة جيداً، ابنِ ما يعمل، قِس النتيجة، ثم قرر ما تتوسع فيه. الفرق الذي يحقق أفضل النتائج هو الفريق الذي يقاوم إغراء بناء كل شيء دفعةً واحدة. سنُنبهكم إذا رأينا أنكم تتجاوزون الحدود المعقولة." },
     ]},
   } : {
     services: { title: "Services", questions: [
@@ -46,24 +54,32 @@ export default function FAQ() {
       { q: "Do you support Arabic in your projects?", a: "Absolutely! We specialize in building multilingual solutions with full support for Arabic (RTL), English, and Turkish. All our products are designed to work seamlessly with the languages your target markets use." },
       { q: "What's the difference between regular chatbots and AI agents?", a: "Traditional chatbots rely on predefined rules and canned responses. The AI agents we develop use advanced LLMs to understand context, learn from conversations, and integrate with your existing systems." },
       { q: "Can you integrate with our existing systems?", a: "Yes, we specialize in systems integration. We connect our solutions with CRM platforms (HubSpot, Salesforce, Zoho), ERP systems, databases, and any custom APIs." },
+      { q: "Can you work with our existing tech stack, or do you start from scratch?", a: "We start from where you are. Our first step is always a technical audit to understand what you have, what's working, and what's holding you back. Sometimes the best move is rebuilding something properly. Sometimes it's adding a layer on top of what already exists. We'll tell you honestly which is which." },
+      { q: "Do you only work with large enterprises, or do you also work with SMBs?", a: "We work across the board — from early-stage startups launching their first product to regional enterprises deploying automation at scale. What matters is that you have a real business problem you want solved. Company size doesn't change how we approach the work." },
     ]},
     pricing: { title: "Pricing & Budget", questions: [
       { q: "How do you price your projects?", a: "We price based on project scope, complexity, timeline, and required technologies. After discussing your requirements, we provide a transparent, detailed quote outlining costs, deliverables, and milestones." },
       { q: "What's the average cost of an AI chatbot project?", a: "A basic AI chatbot ranges from $5,000 to $15,000, while advanced solutions with CRM integration and custom training can range from $15,000 to $50,000+. We offer a free consultation to assess your needs." },
       { q: "Do you offer monthly payment plans or subscriptions?", a: "Yes, we offer flexible pricing models. For larger projects, we provide milestone-based payments (30-50% upfront). We also offer monthly maintenance and support contracts after project launch." },
       { q: "Are there any hidden costs or additional fees?", a: "No, we believe in complete transparency. All costs (development, hosting, licenses, third-party services) are clearly outlined in the quote. Any scope changes are discussed and approved in writing." },
+      { q: "Can I get a rough estimate before committing to a full consultation?", a: "Sure. A basic AI chatbot typically runs $5k–$15k. A bilingual web platform usually falls between $15k–$40k. Custom AI systems with complex integrations start around $20k and scale up from there. These are honest ballparks — the actual number depends on your specific requirements, which is why the consultation matters." },
+      { q: "Do you take equity instead of cash for early-stage startups?", a: "We don't take equity as a primary payment model. We've found it creates misaligned incentives and complicates the relationship. That said, if you're at a genuinely early stage with interesting traction and the right fit, we're open to a conversation about hybrid arrangements. Reach out and we'll be straight with you." },
     ]},
     process: { title: "Process & Timeline", questions: [
       { q: "How long does a typical project take?", a: "Simple chatbot: 2-4 weeks. Medium-complexity website: 4-8 weeks. Full mobile app: 8-16 weeks. Custom AI solutions: 6-12 weeks. We provide a detailed timeline with clear milestones at project start." },
       { q: "What does your development process look like?", a: "We follow an Agile methodology: (1) Discovery & Planning, (2) Design & Prototyping, (3) Iterative Development, (4) Testing & QA, (5) Launch & Support." },
       { q: "Can I request changes during development?", a: "Yes, we welcome feedback and revisions! We provide regular review cycles at each stage. Minor adjustments within the agreed scope are included. Major scope changes are assessed and priced separately." },
       { q: "What happens after the project launches?", a: "We provide a warranty period (typically 30-90 days) to fix any bugs or issues. After that, we offer optional maintenance and support contracts." },
+      { q: "How involved do I need to be during the project?", a: "As involved as the project demands — but we don't create unnecessary overhead. In the first two weeks, we'll need your input on requirements and decisions. After that, we move independently and sync with you at meaningful milestones. You won't get 10 Slack messages a day, but you'll always know exactly where things stand." },
+      { q: "What happens if the project runs over budget or timeline?", a: "We scope carefully to avoid this, and it's rare. But when things change — because they sometimes do — we tell you immediately, explain why, and give you options. We don't present surprises at the finish line. If the scope expands, we agree in writing before we build." },
     ]},
     support: { title: "Support & Communication", questions: [
-      { q: "How can I get in touch to start a project?", a: "You can reach us through the contact form on our website, or email us directly at contact@raanzlr.com. One of our engineers will respond within 24 business hours." },
+      { q: "How can I get in touch to start a project?", a: "You can reach us through the contact form on our website, or email us directly at info@raanzlr.com. One of our engineers will respond within 24 business hours." },
       { q: "Do you offer free consultations?", a: "Yes! We offer a free initial consultation (30-45 minutes) to understand your needs, discuss possible solutions, and provide a preliminary cost and timeline estimate." },
       { q: "What time zones do you operate in?", a: "Our headquarters is in New Jersey, USA (EST/EDT), and we have distributed teams in the Middle East (GST/AST) and Europe (CET/EET)." },
       { q: "What languages do you support for communication?", a: "We are fluent in Arabic, English, and Turkish. All our meetings, documentation, and support are available in your preferred language." },
+      { q: "Do you offer ongoing retainer or support after launch?", a: "Yes — we offer monthly maintenance and support retainers ranging from basic uptime monitoring to active development capacity. Most clients keep a small retainer running after launch for peace of mind. The exact scope depends on what you've built and how actively it needs to evolve." },
+      { q: "Can we start small and expand the project later?", a: "That's actually how we prefer to work. Start with one well-scoped problem, build something that works, measure the result, then decide what to expand. The teams that get the best outcomes are the ones who resist the urge to build everything at once. We'll push back if we think you're overreaching." },
     ]},
   }, [isAr]);
 
@@ -88,7 +104,31 @@ export default function FAQ() {
 
   return (
     <div className="relative">
-      <SEO title={isAr ? "الأسئلة الشائعة — Raanzlr" : "Frequently Asked Questions — Raanzlr"} path="/faq" />
+      <SEO pageKey="faq" path="/faq" />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "What services does Raanzlr offer?", "acceptedAnswer": { "@type": "Answer", "text": "We offer a comprehensive range of software engineering and AI services: AI agents & chatbots, workflow automation, web & mobile app development, custom AI solutions, systems integration & APIs, UI/UX design, and technical audits & consulting." } },
+            { "@type": "Question", "name": "Do you support Arabic in your projects?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! We specialize in building multilingual solutions with full support for Arabic (RTL), English, and Turkish. All our products are designed to work seamlessly with the languages your target markets use." } },
+            { "@type": "Question", "name": "What's the difference between regular chatbots and AI agents?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional chatbots rely on predefined rules and canned responses. The AI agents we develop use advanced LLMs to understand context, learn from conversations, and integrate with your existing systems." } },
+            { "@type": "Question", "name": "Can you integrate with our existing systems?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we specialize in systems integration. We connect our solutions with CRM platforms (HubSpot, Salesforce, Zoho), ERP systems, databases, and any custom APIs." } },
+            { "@type": "Question", "name": "How do you price your projects?", "acceptedAnswer": { "@type": "Answer", "text": "We price based on project scope, complexity, timeline, and required technologies. After discussing your requirements, we provide a transparent, detailed quote outlining costs, deliverables, and milestones." } },
+            { "@type": "Question", "name": "What's the average cost of an AI chatbot project?", "acceptedAnswer": { "@type": "Answer", "text": "A basic AI chatbot ranges from $5,000 to $15,000, while advanced solutions with CRM integration and custom training can range from $15,000 to $50,000+. We offer a free consultation to assess your needs." } },
+            { "@type": "Question", "name": "Do you offer monthly payment plans or subscriptions?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we offer flexible pricing models. For larger projects, we provide milestone-based payments (30-50% upfront). We also offer monthly maintenance and support contracts after project launch." } },
+            { "@type": "Question", "name": "Are there any hidden costs or additional fees?", "acceptedAnswer": { "@type": "Answer", "text": "No, we believe in complete transparency. All costs (development, hosting, licenses, third-party services) are clearly outlined in the quote. Any scope changes are discussed and approved in writing." } },
+            { "@type": "Question", "name": "How long does a typical project take?", "acceptedAnswer": { "@type": "Answer", "text": "Simple chatbot: 2-4 weeks. Medium-complexity website: 4-8 weeks. Full mobile app: 8-16 weeks. Custom AI solutions: 6-12 weeks. We provide a detailed timeline with clear milestones at project start." } },
+            { "@type": "Question", "name": "What does your development process look like?", "acceptedAnswer": { "@type": "Answer", "text": "We follow an Agile methodology: (1) Discovery & Planning, (2) Design & Prototyping, (3) Iterative Development, (4) Testing & QA, (5) Launch & Support." } },
+            { "@type": "Question", "name": "Can I request changes during development?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we welcome feedback and revisions! We provide regular review cycles at each stage. Minor adjustments within the agreed scope are included. Major scope changes are assessed and priced separately." } },
+            { "@type": "Question", "name": "What happens after the project launches?", "acceptedAnswer": { "@type": "Answer", "text": "We provide a warranty period (typically 30-90 days) to fix any bugs or issues. After that, we offer optional maintenance and support contracts." } },
+            { "@type": "Question", "name": "How can I get in touch to start a project?", "acceptedAnswer": { "@type": "Answer", "text": "You can reach us through the contact form on our website, or email us directly at info@raanzlr.com. One of our engineers will respond within 24 business hours." } },
+            { "@type": "Question", "name": "Do you offer free consultations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer a free initial consultation (30-45 minutes) to understand your needs, discuss possible solutions, and provide a preliminary cost and timeline estimate." } },
+            { "@type": "Question", "name": "What time zones do you operate in?", "acceptedAnswer": { "@type": "Answer", "text": "Our headquarters is in New Jersey, USA (EST/EDT), and we have distributed teams in the Middle East (GST/AST) and Europe (CET/EET)." } },
+            { "@type": "Question", "name": "What languages do you support for communication?", "acceptedAnswer": { "@type": "Answer", "text": "We are fluent in Arabic, English, and Turkish. All our meetings, documentation, and support are available in your preferred language." } }
+          ]
+        })}</script>
+      </Helmet>
 
       <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-28 sm:pt-32">
         <div className="absolute inset-0 bg-grid" />

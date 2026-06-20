@@ -71,6 +71,10 @@ scripts/
 *.sh
 *.bat
 
+# Backend and database (using Supabase instead)
+lib/
+artifacts/api-server/
+
 # Documentation files (exclude all unnecessary docs)
 *_REPORT.md
 *_SUMMARY.md

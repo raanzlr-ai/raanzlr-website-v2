@@ -21,9 +21,20 @@ export default function CaseStudyDetail() {
   return (
     <div className="relative">
       <SEO
-        title={`${isAr ? study.title.ar : study.title.en} — Raanzlr`}
-        description={isAr ? study.desc.ar : study.desc.en}
+        title={`${study.title.en} — Raanzlr`}
+        titleAr={`${study.title.ar} — Raanzlr`}
+        description={study.desc.en}
+        descriptionAr={study.desc.ar}
+        keywords={`${study.industry?.en || ''} case study, AI automation case study GCC, ${study.tag?.en || ''}`}
+        keywordsAr={`دراسة حالة ${study.industry?.ar || ''}، أتمتة بالذكاء الاصطناعي الخليج، ${study.tag?.ar || ''}`}
         path={`/case-studies/${study.slug}`}
+        type="article"
+        article={{
+          publishedTime: `${study.date}T00:00:00Z`,
+          author: "Raanzlr",
+          section: study.industry?.en || "Technology",
+          tags: study.tag ? [study.tag.en] : [],
+        }}
       />
 
       {/* Hero */}

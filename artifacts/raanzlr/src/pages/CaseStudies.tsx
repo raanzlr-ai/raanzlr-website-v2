@@ -14,11 +14,7 @@ export default function CaseStudies() {
 
   return (
     <div className="relative">
-      <SEO
-        title={isAr ? "دراسات الحالة — Raanzlr" : "Case Studies — Raanzlr"}
-        description={isAr ? "اكتشف كيف ساعدت Raanzlr شركات في الخليج وتركيا على تحويل عملياتهم بالذكاء الاصطناعي والأتمتة." : "See how Raanzlr helped companies across the GCC and Turkey transform their operations with AI and automation."}
-        path="/case-studies"
-      />
+      <SEO pageKey="caseStudies" path="/case-studies" />
 
       <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-28 sm:pt-32">
         <div className="absolute inset-0 bg-grid" />
@@ -91,8 +87,7 @@ export default function CaseStudies() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-chrome">{isAr ? "مشروعك يمكن أن يكون التالي." : "Your project could be next."}</h2>
             <p className="mt-4 text-white/60 max-w-md mx-auto">{isAr ? "احجز استشارة مجانية ودعنا نناقش كيف يمكننا مساعدتك في تحقيق نتائج مماثلة." : "Book a free consultation and let's discuss how we can help you achieve similar results."}</p>
             <div className="mt-8 flex justify-center gap-4 flex-wrap">
-              <MagneticButton to="/book-a-call">{isAr ? "احجز استشارة مجانية" : "Book a Free Consultation"}</MagneticButton>
-              <MagneticButton to="/contact" variant="ghost">{isAr ? "تواصل معنا" : "Contact Us"}</MagneticButton>
+              <MagneticButton to="/contact">{isAr ? "تواصل معنا للبدء" : "Get in Touch"}</MagneticButton>
             </div>
           </Reveal>
         </div>

@@ -15,6 +15,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { useLang } from "../contexts/LanguageContext";
+import { translations } from "../lib/translations";
 import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import PulseDivider from "../components/PulseDivider";
 import MagneticButton from "../components/MagneticButton";
@@ -38,14 +39,22 @@ export default function ServiceDetail() {
   const service = t.services.items.find((s: any) => s.key === slug);
   if (!service) return <Navigate to="/services" replace />;
 
+  // Get both language versions for proper bilingual SEO
+  const enSvc = translations.en.services.items.find((s: any) => s.key === slug);
+  const arSvc = translations.ar.services.items.find((s: any) => s.key === slug);
+
   const Icon = icons[service.key] ?? Sparkles;
   const others = t.services.items.filter((s: any) => s.key !== slug).slice(0, 3);
 
   return (
     <div className="relative">
       <SEO
-        title={`${service.title} — Raanzlr`}
-        description={service.desc}
+        title={`${enSvc?.title ?? service.title} — Raanzlr`}
+        titleAr={`${arSvc?.title ?? service.title} — Raanzlr`}
+        description={enSvc?.desc ?? service.desc}
+        descriptionAr={arSvc?.desc ?? service.desc}
+        keywords={`${enSvc?.title}, AI GCC, automation MENA, software development`}
+        keywordsAr={`${arSvc?.title}، ذكاء اصطناعي الخليج، أتمتة الشرق الأوسط`}
         path={`/services/${service.key}`}
       />
 
@@ -55,6 +64,8 @@ export default function ServiceDetail() {
           <img
             src={service.image}
             alt={service.title}
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-full object-cover opacity-15"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-[#050505]/80 to-[#050505]" />
@@ -208,8 +219,8 @@ export default function ServiceDetail() {
                 >
                   {t.cta.requestService}
                 </MagneticButton>
-                <MagneticButton to="/book-a-call" variant="ghost">
-                  {t.cta.bookCall}
+                <MagneticButton to="/contact" variant="ghost">
+                  {t.cta.contactUs}
                 </MagneticButton>
               </div>
             </div>

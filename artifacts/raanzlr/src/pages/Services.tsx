@@ -78,7 +78,7 @@ export default function Services() {
                       <div className="h-12 w-12 rounded-xl border border-cyan-400/30 bg-cyan-400/5 flex items-center justify-center">
                         <Icon className="h-5 w-5 text-cyan-300" />
                       </div>
-                      <span className={`text-[10px] font-mono-accent uppercase tracking-[0.18em] px-2.5 py-1 rounded-full border ${isHigh ? "border-cyan-400/50 text-cyan-300 bg-cyan-400/10" : "border-white/10 text-white/40"}`}>
+                      <span className={`text-[10px] font-mono-accent uppercase tracking-[0.18em] px-2.5 py-1 rounded-full border ${isHigh ? "border-cyan-400/50 text-cyan-300 bg-cyan-400/10" : "border-blue-400/50 text-blue-300 bg-blue-400/10"}`}>
                         {isHigh ? t.services.highDemand : t.services.standard}
                       </span>
                     </div>

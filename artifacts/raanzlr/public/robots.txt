@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /admin/
 
+Sitemap: https://raanzlr.com/sitemap-index.xml
 Sitemap: https://raanzlr.com/sitemap.xml
+Sitemap: https://raanzlr.com/sitemap-en.xml
+Sitemap: https://raanzlr.com/sitemap-ar.xml

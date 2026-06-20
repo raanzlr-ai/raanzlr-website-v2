@@ -18,9 +18,9 @@ export default function LanguageToggle({ className = "" }: { className?: string 
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 4 }}
         transition={{ duration: 0.2 }}
-        className="min-w-[2.2rem] text-center"
+        className="min-w-[2.8rem] text-center"
       >
-        {isAr ? "EN" : "عر"}
+        {isAr ? "EN" : "عربي"}
       </motion.span>
       <span className="h-1 w-1 rounded-full bg-cyan-400 animate-pulse" />
     </button>

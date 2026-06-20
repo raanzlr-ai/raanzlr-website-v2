@@ -13,7 +13,7 @@ const SECTIONS_EN = [
   { icon: CreditCard, title: "Payments & Billing", content: ["Payment terms are specified in individual project agreements. Standard terms include an upfront deposit (typically 30-50%) with the remainder due upon milestone completion or project delivery.", "All prices are quoted in USD unless otherwise specified. Late payments may be subject to interest charges. We reserve the right to suspend work on projects with outstanding invoices."] },
   { icon: AlertCircle, title: "Intellectual Property", content: ["Upon full payment, clients receive ownership of all custom code, designs, and deliverables created specifically for their project.", "Raanzlr retains ownership of any pre-existing proprietary frameworks, tools, libraries, or methodologies used in project delivery. Open-source components are licensed under their respective licenses.", "Neither party may use the other's trademarks, logos, or brand materials without prior written consent."] },
   { icon: Scale, title: "Limitation of Liability", content: ["Raanzlr's liability to clients is limited to the total amount paid for the specific service giving rise to the claim. We are not liable for indirect, incidental, special, or consequential damages.", "We make no warranties that our services will be error-free or uninterrupted. Software development involves inherent uncertainties, and we work diligently to mitigate risks but cannot guarantee specific outcomes."] },
-  { icon: MessageSquare, title: "Governing Law & Disputes", content: ["These terms are governed by the laws of the State of New Jersey, United States. Any disputes arising from these terms or our services will be resolved through good-faith negotiation before pursuing formal legal proceedings.", "For any questions about these terms or to resolve a dispute, contact us at: contact@raanzlr.com or 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA."] },
+  { icon: MessageSquare, title: "Governing Law & Disputes", content: ["These terms are governed by the laws of the State of New Jersey, United States. Any disputes arising from these terms or our services will be resolved through good-faith negotiation before pursuing formal legal proceedings.", "For any questions about these terms or to resolve a dispute, contact us at: info@raanzlr.com or 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA."] },
 ];
 
 const SECTIONS_AR = [
@@ -22,7 +22,7 @@ const SECTIONS_AR = [
   { icon: CreditCard, title: "المدفوعات والفوترة", content: ["شروط الدفع محددة في اتفاقيات المشروع الفردية. تتضمن الشروط القياسية دفعة مقدمة (عادة 30-50%) والباقي عند اكتمال المعالم أو تسليم المشروع.", "جميع الأسعار مقتبسة بالدولار الأمريكي ما لم يُنص على خلاف ذلك. قد تخضع المدفوعات المتأخرة لرسوم فائدة."] },
   { icon: AlertCircle, title: "الملكية الفكرية", content: ["عند الدفع الكامل، يحصل العملاء على ملكية جميع الأكواد المخصصة والتصاميم والمخرجات المنشأة خصيصاً لمشروعهم.", "تحتفظ Raanzlr بملكية أي أطر أو أدوات أو مكتبات أو منهجيات خاصة موجودة مسبقاً تُستخدم في تسليم المشروع.", "لا يجوز لأي طرف استخدام العلامات التجارية أو الشعارات أو مواد العلامة التجارية للطرف الآخر دون موافقة خطية مسبقة."] },
   { icon: Scale, title: "حدود المسؤولية", content: ["تقتصر مسؤولية Raanzlr تجاه العملاء على إجمالي المبلغ المدفوع مقابل الخدمة المحددة التي أدت إلى المطالبة.", "لا نقدم ضمانات بأن خدماتنا ستكون خالية من الأخطاء أو غير منقطعة. نعمل بجد للحد من المخاطر لكن لا يمكننا ضمان نتائج محددة."] },
-  { icon: MessageSquare, title: "القانون الحاكم والنزاعات", content: ["تخضع هذه الشروط لقوانين ولاية نيوجيرسي، الولايات المتحدة. أي نزاعات تُحل أولاً من خلال التفاوض بحسن نية.", "للتواصل: contact@raanzlr.com أو 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA."] },
+  { icon: MessageSquare, title: "القانون الحاكم والنزاعات", content: ["تخضع هذه الشروط لقوانين ولاية نيوجيرسي، الولايات المتحدة. أي نزاعات تُحل أولاً من خلال التفاوض بحسن نية.", "للتواصل: info@raanzlr.com أو 9 Branch Brook Dr #10030, Belleville, NJ 07109, USA."] },
 ];
 
 export default function TermsOfService() {
@@ -32,10 +32,7 @@ export default function TermsOfService() {
 
   return (
     <div className="relative">
-      <SEO
-        title={isAr ? "شروط الخدمة — Raanzlr" : "Terms of Service — Raanzlr"}
-        path="/terms-of-service"
-      />
+      <SEO pageKey="termsOfService" path="/terms-of-service" />
 
       <section className="relative pt-36 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-40" />

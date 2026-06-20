@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Search, ChevronDown, Check } from "lucide-react";
+import SyriaFlag from "./SyriaFlag";
 
 const COUNTRIES = [
   { code: "+1", name: "United States", flag: "🇺🇸", search: "us usa united states" },
@@ -25,7 +26,7 @@ const COUNTRIES = [
   { code: "+234", name: "Nigeria", flag: "🇳🇬", search: "ng nigeria" },
   { code: "+961", name: "Lebanon", flag: "🇱🇧", search: "lb lebanon" },
   { code: "+962", name: "Jordan", flag: "🇯🇴", search: "jo jordan" },
-  { code: "+963", name: "Syria", flag: "🇸🇾", search: "sy syria" },
+  { code: "+963", name: "Syria", flag: "SYRIA_FLAG", search: "sy syria" },
   { code: "+964", name: "Iraq", flag: "🇮🇶", search: "iq iraq" },
   { code: "+965", name: "Kuwait", flag: "🇰🇼", search: "kw kuwait" },
   { code: "+966", name: "Saudi Arabia", flag: "🇸🇦", search: "sa saudi arabia" },
@@ -84,7 +85,11 @@ export default function PhoneInput({ value, onChange, phoneCode, onPhoneCodeChan
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-2 rounded-l-xl border border-white/10 bg-white/[0.02] px-3 py-3 hover:bg-white/[0.04] focus:outline-none focus:border-cyan-400/60 transition-colors w-[110px]"
         >
-          <span className="text-lg leading-none">{selected.flag}</span>
+          {selected.flag === "SYRIA_FLAG" ? (
+            <SyriaFlag className="w-6 h-[18px]" />
+          ) : (
+            <span className="text-lg leading-none">{selected.flag}</span>
+          )}
           <span className="text-white text-sm font-medium">{selected.code}</span>
           <ChevronDown className="w-3.5 h-3.5 text-white/50 ml-auto" />
         </button>
@@ -111,7 +116,11 @@ export default function PhoneInput({ value, onChange, phoneCode, onPhoneCodeChan
                   className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-white/[0.05] text-left transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-lg">{c.flag}</span>
+                    {c.flag === "SYRIA_FLAG" ? (
+                      <SyriaFlag className="w-6 h-[18px]" />
+                    ) : (
+                      <span className="text-lg">{c.flag}</span>
+                    )}
                     <span className="text-sm text-white">{c.name}</span>
                   </div>
                   <div className="flex items-center gap-2">
