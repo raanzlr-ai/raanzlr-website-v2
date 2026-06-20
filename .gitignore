@@ -51,11 +51,19 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+.replit
+.replitignore
+.replit-artifact/
+**/.replit-artifact/
 
 # Build outputs
 dist/
 *.tsbuildinfo
-.replit-artifact/
+
+# Unnecessary artifacts
+artifacts/mockup-sandbox/
+attached_assets/
+scripts/
 
 # Agent memory and documentation
 .agents/
