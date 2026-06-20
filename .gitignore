@@ -37,6 +37,10 @@ yarn-error.log
 testem.log
 /typings
 
+# Environment variables
+.env
+.env.local
+
 # System Files
 .DS_Store
 Thumbs.db
@@ -47,3 +51,20 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+.replit-artifact/
+
+# Agent memory and documentation
+.agents/
+.kilo/
+*.sh
+
+# Documentation files (exclude these specific ones)
+STATUS_REPORT.md
+RUN_IMAGE_GENERATION.md
+APPEND_MARKETS.txt
+artifacts/SEO.MD
+replit.md
